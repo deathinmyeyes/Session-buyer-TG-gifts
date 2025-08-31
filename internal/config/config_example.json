@@ -1,0 +1,95 @@
+{
+  "_comment1_main": "===> ПЕРЕД ТЕМ КАК СЮДА ЛЕЗТЬ - ПРОЧТИ README.md ФАЙЛ <===",
+  "_comment2_main": "Конфигурация Gift Buyer - автоматической системы покупки Telegram подарков by @earnfame",
+  "_comment3_main": "При смене значений у полей, начинающихся на _comment - НИЧЕГО не произойдет",
+  "_comment4_main": "Схема ниже настроена на покупку лимитированных подарков (возможна более гибкая настройка)",
+  "_comment_logging": "Уровень логирования: debug, info, warn, error",
+  "logger_level": "debug",
+
+  "soft_config": {
+    "_comment_tg_settings": "===> НАСТРОЙКИ TELEGRAM <===",
+    "tg_settings": {
+      "_comment_api": "Обязательные параметры API из my.telegram.org",
+      "app_id": 1234567890,
+      "api_hash": "qwertyuiop[]asdfghjkl;'zxcvbnm,./",
+      "phone": "+71234567890",
+      "password": "",
+
+      "_comment_notifications": "===> УВЕДОМЛЕНИЯ И ЛОГИРОВАНИЕ <===",
+      "_comment_bot": "ВАЖНО: Настройте бота для получения уведомлений об ошибках, статусе покупок и процессе переподключения",
+      "tg_bot_key": "1234567890:AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+      "_comment_datacenter": "Датацентр Telegram (0=авто, 1-5=конкретный ДЦ). Рекомендуется 5 если ДЦ2 лагает",
+      "datacenter": 4,
+      "_comment_chat": "Ваш User ID для отправки уведомлений (получить у @userinfobot)",
+      "notification_chat_id": 1234567890
+    },
+
+    "_comment_logging_system": "===> СИСТЕМА ЛОГИРОВАНИЯ <===",
+    "_comment_log_flag": "Флаг для записи логов как в файл, так и в консоль (true/false)",
+    "log_flag": true,
+
+    "_comment_updates": "===> СИСТЕМА ОБНОВЛЕНИЙ <===",
+    "update_ticker": 60,
+    "repo_owner": "deathinmyeyes",
+    "repo_name": "Session-gift-buyer",
+    "api_link": "https://api.github.com",
+
+    "_comment_criteria": "===> КРИТЕРИИ ПОКУПКИ С ПРИОРИТИЗАЦИЕЙ <===",
+    "criterias": [
+      {
+        "_comment": "Дешевые подарки - отправляются пользователям",
+        "min_price": 10,
+        "max_price": 100,
+        "total_supply": 100000000,
+        "count": 10,
+        "hide": false,
+        "receiver_type": [1]
+      },
+      {
+        "_comment": "Дорогие подарки - отправляются себе или в каналы",
+        "min_price": 500,
+        "max_price": 1000,
+        "total_supply": 50000,
+        "count": 5,
+        "receiver_type": [0, 2]
+      }
+    ],
+
+    "_comment_gift_params": "===> ПАРАМЕТРЫ ПОДАРКОВ <===",
+    "gift_param": {
+      "_comment_star_cap": "Максимальная капитализация в звездах",
+      "total_star_cap": 1000000000000,
+      "_comment_limited": "Покупать только ограниченные подарки (true) или неограниченные (false)",
+      "limited_status": true,
+      "_comment_release": "Покупать только подарки от кого-то конкретного (true/false)",
+      "release_by": false,
+      "_comment_test": "Тестовый режим - отключает проверки лимитов и ограничений (true/false)",
+      "test_mode": false,
+      "_comment_premium": "Покупать только премиум подарки (true/false)",
+      "only_premium": false
+    },
+
+    "_comment_receivers": "===> ПОЛУЧАТЕЛИ ПОДАРКОВ (ТЕГИ) <===",
+    "receiver": {
+      "_comment_users": "Теги пользователей (без @). Оставить пустой массив, если не нужно покупать подарки пользователям",
+      "user_receiver_id": ["username1", "username2", "username3"],
+      "_comment_channels": "Теги каналов (без @). Оставить пустой массив, если не нужно покупать подарки в каналы",
+      "channel_receiver_id": ["channel1", "channel2", "channel3"]
+    },
+
+    "_comment_performance": "===> ПРОИЗВОДИТЕЛЬНОСТЬ И НАДЕЖНОСТЬ <===",
+    "_comment_monitoring": "Интервал мониторинга в секундах",
+    "ticker": 2.0,
+    "_comment_limits": "Глобальные ограничения на покупки",
+    "max_buy_count": 100,
+    "_comment_retry": "РЕКОМЕНДУЕТСЯ: 5+ попыток, 2-3 сек задержка, макс 30 RPS",
+    "retry_count": 5,
+    "retry_delay": 2.5,
+    "_comment_concurrency": "Параллельная обработка",
+    "concurrency_gift_count": 10,
+    "concurrent_operations": 300,
+    "rpc_rate_limit": 20,
+    "_comment_prioritization": "Приоритизация. Покупает последовательно от самого дорогого к дешевому. Никакой параллельности и конкурентности, только медленная и последовательная покупка.",
+    "prioritization": false
+  }
+}
