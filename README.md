@@ -21,8 +21,8 @@
 
 ```bash
 git clone <repository-url>
-cd gift-buyer
-go build -o gift-buyer.exe cmd/main.go
+cd Session-buyer-TG-gifts
+go build -o Session-buyer-TG-gifts.exe cmd/main.go
 ```
 
 ### 2. Настройка конфигурации
@@ -36,7 +36,7 @@ cp internal/config/config_example.json internal/config/config.json
 ### 3. Запуск
 
 ```bash
-./gift-buyer
+./Session-buyer-TG-gifts
 ```
 
 ## 🧪 Тестирование
@@ -220,8 +220,8 @@ cp internal/config/config_example.json internal/config/config.json
 
 ```bash
 git clone <repository-url>
-cd gift-buyer
-go build -o gift-buyer.exe cmd/main.go
+cd Session-buyer-TG-gifts
+go build -o Session-buyer-TG-gifts.exe cmd/main.go
 ```
 
 ### 2. Configuration Setup
@@ -235,7 +235,7 @@ Edit `config.json` with your data (see [Configuration](#️-configuration-1)).
 ### 3. Launch
 
 ```bash
-./gift-buyer
+./Session-buyer-TG-gifts
 ```
 
 ## 🧪 Тестирование
